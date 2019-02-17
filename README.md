@@ -29,7 +29,7 @@ How to install the simulator:
 2. Download package
 
     ```
-    git clone https://github.com/iolyp/ardrone_simulator_gazebo7
+    git clone https://github.com/jkleiber/ardrone_simulator_gazebo7
     ```
 3. Build the simulator
 

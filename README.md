@@ -18,6 +18,7 @@ This package depends on ardrone_autonomy package and gazebo7 so install these fi
 How to install the simulator:
 
 1. Install gazebo7 (comes with ROS Kinetic) and the ardrone_autonomy package (two options listed below)
+    
     a) Installing ardrone_autonomy as a binary *(recommended)*
     ```
     sudo apt-get install ros-*-ardrone-autonomy

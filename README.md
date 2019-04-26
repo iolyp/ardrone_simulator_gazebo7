@@ -1,11 +1,11 @@
-tum_simulator on Indigo and Gazebo 7
+tum_simulator on ROS Kinetic and Gazebo 7
 =============
 
-These packages are used to simulate the flying robot Ardrone in ROS environment using gazebo simulator. Totally they are 4 packages. Their functions are descript as below:
+These packages are used to simulate the Parrot AR.Drone 2.0 in a ROS Kinetic environment using the Gazebo simulator. Altogether, there are 4 packages. Their functions are descript as below:
 
-1. cvg_sim_gazebo: contains object models, sensor models, quadrocopter models, flying environment information and individual launch files for each objects and pure environment without any other objects.
+1. cvg_sim_gazebo: contains object models, sensor models, quadrocopter models, flying environment information and individual launch files for each object and a pure environment without any other objects.
 
-2. cvg_sim_gazebo_plugins: contains gazebo plugins for the quadrocopter model. quadrotor_simple_controller is used to control the robot motion and deliver navigation information, such as: /ardrone/navdata. Others are plugins for sensors in the quadrocopter, such as: IMU sensor, sonar sensor, GPS sensor.
+2. cvg_sim_gazebo_plugins: contains gazebo plugins for the quadrocopter model. quadrotor_simple_controller is used to control the robot motion and deliver navigation information, such as: /ardrone/navdata. Others are plugins for sensors in the quadcopter, such as: IMU sensor, sonar sensor, GPS sensor.
 
 3. message_to_tf: is a package used to create a ros node, which transfers the ros topic /ground_truth/state to a /tf topic.
 
@@ -17,21 +17,32 @@ This package depends on ardrone_autonomy package and gazebo7 so install these fi
 
 How to install the simulator:
 
-1. Install gazebo7 and ardrone_autonomy package
-
-2. Create a workspace for the simulator
-
+1. Install gazebo7 (comes with ROS Kinetic) and the ardrone_autonomy package (two options listed below)
+    a) Installing ardrone_autonomy as a binary *(recommended)*
     ```
-    mkdir -p ~/ardrone_simulator/src
-    cd  ~/ardrone_simulator/src
-    catkin_init_workspace
+    sudo apt-get install ros-*-ardrone-autonomy
     ```
-2. Download package
+    b) Installing ardrone_autonomy from source in your workspace
+    ```
+    $ cd ~/catkin_ws/src
+    $ git clone https://github.com/AutonomyLab/ardrone_autonomy.git -b indigo-devel
+    $ cd ~/catkin_ws
+    $ rosdep install --from-paths src -i
+    $ catkin_make
+    ```
+    Of course, this can be found on the ardrone_autonomy documentation website: https://ardrone-autonomy.readthedocs.io/en/latest/installation.html
+
+2. Navigate to your workspace's src folder
+    ```
+    cd ~/catkin_ws/src/
+    ```
+
+3. Clone this repository
 
     ```
     git clone https://github.com/jkleiber/ardrone_simulator_gazebo7
     ```
-3. Build the simulator
+4. Build the simulator (and any other files in your workspace)
 
     ```
     cd ..
@@ -42,12 +53,18 @@ How to install the simulator:
     ```
     source devel/setup.bash
     ```
+    
 How to run a simulation:
 
 1. Run a simulation by executing a launch file in cvg_sim_gazebo package:
 
     ```
     roslaunch cvg_sim_gazebo ardrone_testworld.launch
+    ```
+    
+    Alternatively, include the above launch file in one of your own custom launch files, like so:
+    ```
+    <include file="$(find cvg_sim_gazebo)/launch/ardrone_testworld.launch"/>
     ```
 
 How to run a simulation using ar_track_alvar tags:

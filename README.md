@@ -21,7 +21,7 @@ How to install the simulator:
     
     a) Installing ardrone_autonomy as a binary *(recommended)*
     ```
-    sudo apt-get install ros-*-ardrone-autonomy
+    sudo apt-get install ros-kinetic-ardrone-autonomy
     ```
     b) Installing ardrone_autonomy from source in your workspace
     ```

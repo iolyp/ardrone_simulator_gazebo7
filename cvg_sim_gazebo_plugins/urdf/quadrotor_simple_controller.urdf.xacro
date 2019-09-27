@@ -28,8 +28,8 @@ xmlns:xacro="http://ros.org/wiki/xacro"
         <velocityZDifferentialGain>1.0</velocityZDifferentialGain>
         <velocityZLimit>1.0</velocityZLimit>
         <maxForce>30</maxForce>
-        <motionSmallNoise>0.05</motionSmallNoise>
-        <motionDriftNoise>0.03</motionDriftNoise>
+        <motionSmallNoise>0.0</motionSmallNoise>
+        <motionDriftNoise>0.0</motionDriftNoise>
         <motionDriftNoiseTime>5.0</motionDriftNoiseTime>
       </plugin>
 

@@ -77,3 +77,9 @@ How to run a simulation using ar_track_alvar tags:
     ```
     roslaunch cvg_sim_gazebo ar_tag.launch
     ```
+    
+## Debugging
+If the drone flies upward forever, try installing these hector quadrotor packages:
+    ```
+    sudo apt-get install ros-kinetic-hector-gazebo ros-kinetic-hector-sensors-gazebo ros-kinetic-hector-xacro-tools
+    ```

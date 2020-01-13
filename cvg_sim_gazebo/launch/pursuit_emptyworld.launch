@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<launch>
+    <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+    <include file="$(find gazebo_ros)/launch/empty_world.launch">
+    </include>
+
+    <group ns="drone1">
+        <!-- Spawn simulated quadrotor uav -->
+        <include file="$(find cvg_sim_gazebo)/launch/spawn_quadrotor.launch" >
+            <arg name="model" value="$(find cvg_sim_gazebo)/urdf/quadrotor_sensors.urdf.xacro"/>
+            <arg name="model_name" value="quadrotor1"/>
+            <arg name="x" value="0"/>
+            <arg name="y" value="0"/>
+            <arg name="z" value="0"/>
+            <arg name="ns" value="/drone1"/>
+        </include>
+    </group>
+
+    <group ns="drone2">
+        <!-- Spawn a second simulated quadrotor uav -->
+        <include file="$(find cvg_sim_gazebo)/launch/spawn_quadrotor.launch" >
+            <arg name="model" value="$(find cvg_sim_gazebo)/urdf/quadrotor_sensors.urdf.xacro"/>
+            <arg name="model_name" value="quadrotor2"/>
+            <arg name="x" value="-1"/>
+            <arg name="y" value="1"/>
+            <arg name="z" value="0"/>
+            <arg name="ns" value="/drone2"/>
+        </include>
+    </group>
+
+</launch>

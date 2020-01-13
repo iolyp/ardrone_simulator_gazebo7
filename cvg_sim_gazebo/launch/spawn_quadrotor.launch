@@ -9,6 +9,8 @@
    <arg name="R" default="0"/>
    <arg name="P" default="0"/>
    <arg name="Y" default="0"/>
+   <arg name="model_name" default="quadrotor"/>
+   <arg name="ns" default="/ardrone"/>
    <!-- send the robot XML to param server -->
    <param name="robot_description" command="$(find xacro)/xacro.py '$(arg model)'" />
 
@@ -16,13 +18,14 @@
    <node name="spawn_robot" pkg="gazebo_ros" type="spawn_model"
    args="-param robot_description
    -urdf
+   --namespace '$(arg ns)'
    -x '$(arg x)'
    -y '$(arg y)'
    -z '$(arg z)'
    -R '$(arg R)'
    -P '$(arg P)'
    -Y '$(arg Y)'
-   -model quadrotor"
+   -model '$(arg model_name)'"
      respawn="false" output="screen"/>
 
    <!-- start robot state publisher -->

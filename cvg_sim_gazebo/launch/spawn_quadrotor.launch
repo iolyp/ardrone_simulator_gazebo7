@@ -10,28 +10,31 @@
    <arg name="P" default="0"/>
    <arg name="Y" default="0"/>
    <arg name="model_name" default="quadrotor"/>
-   <arg name="ns" default="/ardrone"/>
+   <arg name="tf_prefix" default="" />
+
    <!-- send the robot XML to param server -->
    <param name="robot_description" command="$(find xacro)/xacro.py '$(arg model)'" />
 
-   <!-- push robot_description to factory and spawn robot in gazebo -->
-   <node name="spawn_robot" pkg="gazebo_ros" type="spawn_model"
-   args="-param robot_description
-   -urdf
-   --namespace '$(arg ns)'
-   -x '$(arg x)'
-   -y '$(arg y)'
-   -z '$(arg z)'
-   -R '$(arg R)'
-   -P '$(arg P)'
-   -Y '$(arg Y)'
-   -model '$(arg model_name)'"
-     respawn="false" output="screen"/>
+   <!-- If this is a pursuit situation, pass in the namespace -->
+
+  <!-- push robot_description to factory and spawn robot in gazebo -->
+  <node name="spawn_robot" pkg="gazebo_ros" type="spawn_model"
+      args="-param robot_description
+            -urdf
+            -x '$(arg x)'
+            -y '$(arg y)'
+            -z '$(arg z)'
+            -R '$(arg R)'
+            -P '$(arg P)'
+            -Y '$(arg Y)'
+            -model '$(arg model_name)'"
+    respawn="false" output="screen"/>
+
 
    <!-- start robot state publisher -->
    <node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher" output="screen" >
      <param name="publish_frequency" type="double" value="50.0" />
-     <param name="tf_prefix" type="string" value="" />
+     <param name="tf_prefix" type="string" value="'$(arg tf_prefix)'" />
    </node>
 
    <node name="ground_truth_to_tf" pkg="message_to_tf" type="message_to_tf" output="screen">

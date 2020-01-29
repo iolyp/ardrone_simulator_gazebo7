@@ -6,7 +6,7 @@ xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
 xmlns:xacro="http://ros.org/wiki/xacro"
 >
 
-  <!-- Quadrotor Sensor Plugins 
+  <!-- Quadrotor Sensor Plugins
 
         <frameId>ardrone_base_link</frameId>
 
@@ -18,7 +18,7 @@ xmlns:xacro="http://ros.org/wiki/xacro"
         <updateRate>100.0</updateRate>
         <bodyName>base_link</bodyName>
         <frameId>ardrone_base_link</frameId>
-        <topicName>/ardrone/imu</topicName>
+        <topicName>ardrone/imu</topicName>
         <rpyOffsets>0 0 0</rpyOffsets> <!-- deprecated -->
         <gaussianNoise>0</gaussianNoise>  <!-- deprecated -->
         <accelDrift>0.5 0.5 0.5</accelDrift>

@@ -12,19 +12,19 @@
             <arg name="x" value="0"/>
             <arg name="y" value="0"/>
             <arg name="z" value="0"/>
-            <arg name="ns" value="/drone1"/>
+            <arg name="tf_prefix" value="/drone1"/>
         </include>
     </group>
 
     <group ns="drone2">
         <!-- Spawn a second simulated quadrotor uav -->
-        <include file="$(find cvg_sim_gazebo)/launch/spawn_quadrotor.launch" >
+        <include file="$(find cvg_sim_gazebo)/launch/spawn_another_quadrotor.launch" >
             <arg name="model" value="$(find cvg_sim_gazebo)/urdf/quadrotor_sensors.urdf.xacro"/>
             <arg name="model_name" value="quadrotor2"/>
             <arg name="x" value="-1"/>
             <arg name="y" value="1"/>
             <arg name="z" value="0"/>
-            <arg name="ns" value="/drone2"/>
+            <arg name="tf_prefix" value="/drone2"/>
         </include>
     </group>
 

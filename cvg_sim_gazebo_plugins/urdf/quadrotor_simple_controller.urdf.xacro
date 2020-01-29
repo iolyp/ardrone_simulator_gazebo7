@@ -16,8 +16,8 @@ xmlns:xacro="http://ros.org/wiki/xacro"
         <imuTopic>ardrone/imu</imuTopic>
         <navdataTopic>ardrone/navdata</navdataTopic>
         <resetTopic>ardrone/reset</resetTopic>
-        <takeoffTopic>ardrone/takeoff</takeoffTopic>
-        <landTopic>ardrone/land</landTopic>
+        <!--<takeoffTopic>ardrone/takeoff</takeoffTopic>
+        <landTopic>ardrone/land</landTopic>-->
         <topicName>cmd_vel</topicName>
         <rollpitchProportionalGain>10.0</rollpitchProportionalGain>
         <rollpitchDifferentialGain>5.0</rollpitchDifferentialGain>
@@ -46,6 +46,7 @@ xmlns:xacro="http://ros.org/wiki/xacro"
         <sonarTopic>sonar_height</sonarTopic>
         <topicName>cmd_vel</topicName>
         <navdataTopic>ardrone/navdata</navdataTopic>
+        <navdatarawTopic>ardrone/navdata_raw_measures</navdatarawTopic>
         <resetTopic>ardrone/reset</resetTopic>
         <takeoffTopic>ardrone/takeoff</takeoffTopic>
         <landTopic>ardrone/land</landTopic>

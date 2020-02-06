@@ -7,9 +7,9 @@
 
 	<!-- Spawn simulated quadrotor uav -->
 	<include file="$(find cvg_sim_gazebo)/launch/spawn_quadrotor.launch" >
-	<arg name="model" value="$(find cvg_sim_gazebo)/urdf/quadrotor_sensors.urdf.xacro"/> 
+	<arg name="model" value="$(find cvg_sim_gazebo)/urdf/quadrotor_with_sensors.urdf.xacro"/>
 	</include>
-	
+
   	<arg name="pid_namespace" default="pandora_ardrone2_pid" />
 
   	<node

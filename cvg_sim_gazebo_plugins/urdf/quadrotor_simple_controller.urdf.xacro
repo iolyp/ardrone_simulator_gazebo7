@@ -41,7 +41,7 @@ xmlns:xacro="http://ros.org/wiki/xacro"
         <bodyName>${prefix}_base_link</bodyName>
         <stateTopic>ground_truth/state</stateTopic>
         <imuTopic>ardrone/imu</imuTopic>
-        <sonarTopic>sonar_height</sonarTopic>
+        <!--<sonarTopic>sonar_height</sonarTopic>-->
         <topicName>cmd_vel</topicName>
         <navdataTopic>ardrone/navdata</navdataTopic>
         <navdatarawTopic>ardrone/navdata_raw_measures</navdatarawTopic>

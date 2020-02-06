@@ -83,6 +83,12 @@ xmlns:xacro="http://ros.org/wiki/xacro"
         <frameName>map</frameName>
       </plugin>
 
+      <!-- Sonar height sensor
+      <plugin name="quadrotor_sonar_sim" filename="libhector_gazebo_ros_sonar.so">
+        <bodyName>${prefix}_base_link</bodyName>
+        <topicName>sonar_height</topicName>
+      </plugin>-->
+
     </gazebo>
   </xacro:macro>
 </robot>

@@ -2,22 +2,22 @@
 
 <robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
 xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
-xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+xmlns:interface="http://ros.org/wiki/xacro"
 xmlns:xacro="http://ros.org/wiki/xacro"
 >
-
+<xacro:arg name="prefix" default="quadrotor"/>
   <!-- Quadrotor Sensor Plugins
 
         <frameId>ardrone_base_link</frameId>
 
 -->
-  <xacro:macro name="quadrotor_sensors">
+  <xacro:macro name="quadrotor_sensors" params="prefix">
     <gazebo>
       <plugin name="quadrotor_imu_sim" filename="libhector_gazebo_ros_imu.so">
         <alwaysOn>true</alwaysOn>
         <updateRate>100.0</updateRate>
-        <bodyName>base_link</bodyName>
-        <frameId>ardrone_base_link</frameId>
+        <bodyName value="${prefix}_base_link"></bodyName>
+        <frameId value="${prefix}_ardrone_base_link"></frameId>
         <topicName>ardrone/imu</topicName>
         <rpyOffsets>0 0 0</rpyOffsets> <!-- deprecated -->
         <gaussianNoise>0</gaussianNoise>  <!-- deprecated -->
@@ -38,7 +38,7 @@ xmlns:xacro="http://ros.org/wiki/xacro"
       <plugin name="quadrotor_baro_sim" filename="libhector_gazebo_ros_baro.so">
         <alwaysOn>true</alwaysOn>
         <updateRate>10.0</updateRate>
-        <bodyName>base_link</bodyName>
+        <bodyName value="${prefix}_base_link"></bodyName>
         <topicName>pressure_height</topicName>
         <altimeterTopicName>altimeter</altimeterTopicName>
         <offset>0</offset>
@@ -50,7 +50,7 @@ xmlns:xacro="http://ros.org/wiki/xacro"
       <plugin name="quadrotor_magnetic_sim" filename="libhector_gazebo_ros_magnetic.so">
         <alwaysOn>true</alwaysOn>
         <updateRate>10.0</updateRate>
-        <bodyName>base_link</bodyName>
+        <bodyName value="${prefix}_base_link"></bodyName>
         <topicName>magnetic</topicName>
         <offset>0 0 0</offset>
         <drift>0.0 0.0 0.0</drift>
@@ -61,7 +61,7 @@ xmlns:xacro="http://ros.org/wiki/xacro"
       <plugin name="quadrotor_gps_sim" filename="libhector_gazebo_ros_gps.so">
         <alwaysOn>true</alwaysOn>
         <updateRate>4.0</updateRate>
-        <bodyName>base_link</bodyName>
+        <bodyName value="${prefix}_base_link"></bodyName>
         <topicName>fix</topicName>
         <velocityTopicName>fix_velocity</velocityTopicName>
 	<offset>0 0 0</offset>
@@ -77,7 +77,7 @@ xmlns:xacro="http://ros.org/wiki/xacro"
       <plugin name="quadrotor_groundtruth_sim" filename="libgazebo_ros_p3d.so">
         <alwaysOn>true</alwaysOn>
         <updateRate>100.0</updateRate>
-        <bodyName>base_link</bodyName>
+        <bodyName value="${prefix}_base_link"></bodyName>
         <topicName>ground_truth/state</topicName>
         <gaussianNoise>0.0</gaussianNoise>
         <frameName>map</frameName>

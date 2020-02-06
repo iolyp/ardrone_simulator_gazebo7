@@ -2,12 +2,12 @@
 
 <robot xmlns:sensor="http://playerstage.sourceforge.net/gazebo/xmlschema/#sensor"
 xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
-xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
+xmlns:interface="http://ros.org/wiki/xacro"
   xmlns:xacro="http://ros.org/wiki/xacro"
-  >  
+  >
     <xacro:macro name="hokuyo_utm30lx" params="name parent *origin ros_topic update_rate ray_count min_angle max_angle">
       <joint name="${name}_joint" type="fixed">
-	<insert_block name="origin" />
+	<xacro:insert_block name="origin" />
 	<parent link="${parent}"/>
 	<child link="${name}_frame"/>
       </joint>
@@ -20,7 +20,7 @@ xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
 	<visual>
 	  <origin xyz="0 0 0" rpy="0 0 0" />
           <geometry>
-          
+
           <mesh filename="package://cvg_sim_gazebo/meshes/hokuyo_utm30lx/hokuyo_utm_30lx$(optenv TEST_SELF_FILTER).dae"/>
         </geometry>
 	</visual>
@@ -29,12 +29,12 @@ xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
           <geometry>
           <box size="0.058 0.058 0.087" />
           <!--<mesh filename="package://hector_sensors_description/meshes/hokuyo_utm30lx/hokuyo_utm_30lx.stl"/>-->
-          
+
         </geometry>
 	</collision>
 </link>
-      
-   
+
+
   <gazebo reference="${name}_frame">
     <sensor:ray name="${name}">
     <rayCount>${ray_count}</rayCount>
@@ -61,8 +61,7 @@ xmlns:interface="http://playerstage.sourceforge.net/gazebo/xmlschema/#interface"
         </controller:gazebo_ros_laser>
       </sensor:ray>
     </gazebo>
-      
-      
+
+
     </xacro:macro>
   </robot>
-  

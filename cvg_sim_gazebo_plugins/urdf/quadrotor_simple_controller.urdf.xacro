@@ -4,20 +4,18 @@
 xmlns:controller="http://playerstage.sourceforge.net/gazebo/xmlschema/#controller"
 xmlns:xacro="http://ros.org/wiki/xacro"
 >
-
+<xacro:arg name="prefix" default="quadrotor"/>
   <!-- Quadrotor Simple Controller Plugin -->
-  <xacro:macro name="quadrotor_controller">
+  <xacro:macro name="quadrotor_controller" params="prefix">
     <gazebo>
       <plugin name="quadrotor_simple_controller" filename="libhector_gazebo_quadrotor_simple_controller.so">
         <alwaysOn>true</alwaysOn>
         <updateRate>0.0</updateRate>
-        <bodyName>base_link</bodyName>
+        <bodyName value="${prefix}_base_link"></bodyName>
         <stateTopic>ground_truth/state</stateTopic>
         <imuTopic>ardrone/imu</imuTopic>
         <navdataTopic>ardrone/navdata</navdataTopic>
         <resetTopic>ardrone/reset</resetTopic>
-        <!--<takeoffTopic>ardrone/takeoff</takeoffTopic>
-        <landTopic>ardrone/land</landTopic>-->
         <topicName>cmd_vel</topicName>
         <rollpitchProportionalGain>10.0</rollpitchProportionalGain>
         <rollpitchDifferentialGain>5.0</rollpitchDifferentialGain>
@@ -40,7 +38,7 @@ xmlns:xacro="http://ros.org/wiki/xacro"
       <plugin name="quadrotor_state_controller" filename="libhector_gazebo_quadrotor_state_controller.so">
         <alwaysOn>true</alwaysOn>
         <updateRate>0.0</updateRate>
-        <bodyName>base_link</bodyName>
+        <bodyName value="${prefix}_base_link"></bodyName>
         <stateTopic>ground_truth/state</stateTopic>
         <imuTopic>ardrone/imu</imuTopic>
         <sonarTopic>sonar_height</sonarTopic>

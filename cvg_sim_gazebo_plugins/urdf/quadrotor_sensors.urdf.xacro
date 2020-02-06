@@ -83,11 +83,15 @@ xmlns:xacro="http://ros.org/wiki/xacro"
         <frameName>map</frameName>
       </plugin>
 
-      <!-- Sonar height sensor
+      <!-- Sonar height sensor - This doesn't work
       <plugin name="quadrotor_sonar_sim" filename="libhector_gazebo_ros_sonar.so">
+        <alwaysOn>true</alwaysOn>
+        <updateRate>10.0</updateRate>
         <bodyName>${prefix}_base_link</bodyName>
         <topicName>sonar_height</topicName>
-      </plugin>-->
+        <frameId>sonar_link</frameId>
+        <gaussianNoise>0.005</gaussianNoise>
+      </plugin> -->
 
     </gazebo>
   </xacro:macro>

@@ -358,7 +358,7 @@ void GazeboQuadrotorStateController::Update()
     else
     {
       m_timeAfterTakeOff += dt;
-      if(m_timeAfterTakeOff > 0.5)
+      if(m_timeAfterTakeOff > 0.75)
       {
         //ROS_INFO("%f",m_timeAfterTakeOff);
         robot_current_state = FLYING_MODEL;

@@ -33,7 +33,7 @@
 * change:
 * 1. Noise is add to the callback function: VelocityCallback
 * 2. Create a subscriber for rostopic /ardrone/navdata
-* 3. An additional force and torque calculation is added base on the robot state information in /ardrone/navdata 
+* 3. An additional force and torque calculation is added base on the robot state information in /ardrone/navdata
 *
 * Created on: Oct 22, 2012
 * Author: Hongrong huang

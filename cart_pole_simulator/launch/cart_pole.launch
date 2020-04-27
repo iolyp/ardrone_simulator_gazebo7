@@ -1,0 +1,9 @@
+<launch>
+
+    <!-- Launch the simulation -->
+    <node pkg="cart_pole_simulator" name="cart_pole_sim_node" type="cart_pole_simulator" output="screen" />
+
+    <!-- Paramters of the simulation -->
+    <rosparam file="$(find cart_pole_simulator)/launch/default_params.yaml" command="load" />
+
+</launch>
